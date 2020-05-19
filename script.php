@@ -1,45 +1,19 @@
 <?php
-	
-	/*
-	*
-	* As linhas 10 até 16 são as variáveis onde estou armanezando as informações
-	* do formulário através do metódo POST. 
-	* 
-	* Para obter mais informações sobre variáveis estou colocando um link 
-	* abaixo para estudo, direto do site oficial do PHP
-	* https://www.php.net/manual/pt_BR/language.variables.basics.php
-	*
-	*/
 
-	$assunto        = $_POST['nome'];
-	$corpo 			= "
-		Nome: 		".$_POST['nome']." 
-		Email: 		".$_POST['email']."
-		Mensagem:	".$_POST['mensagem']."
-	";
+$remetente    = 'From: contato@titanci.com.br';
+$destinatario = 'camillajesuscorreia@hotmail.com';
+$assunto      = utf8_decode($_POST['nome']);
+$nome         = utf8_decode($_POST['nome']);
+$email        = utf8_decode($_POST['email']);
+$mensagem     = utf8_decode($_POST['mensagem']);
+$alerta       = 'Seus dados foram enviados com sucesso!';
+$corpo          = "
 
-	/*
-	* A Função é responsável por realizar o disparo dar informações por email.
-	* essa função depende de alguns paramêtros como:
-	* Destinatário: Para qual e-mail será enviado os dados.
-	* Assunto: Seria o subject o assunto referente a informação a ser enviada.
-	* Corpo: São os dados armazenados na variável.
-	* Remetente: Onde será exibido qual email está sendo enviado.
-	* 
-	* Para mais definição sobre a função mail você pode ler o link abaixo
-	* https://www.php.net/manual/pt_BR/function.mail.php
-	*
-	*/
-	mail('camillajesuscorreia@hotmail.com', $assunto, $corpo, 'From: contato@titanci.com.br');
-	
-	/*
-	*
-	* Função echo responsável por imprimir uma string(texto) na tela o.
-	* 
-	* Veja com mais detalhes no link abaixo.
-	* https://www.php.net/manual/pt_BR/function.echo.php
-	*
-	*/
+Nome: ".$nome."
+Email: ".$email."
+Mensagem: "
+.$mensagem."";
 
-	echo 'Seus dados foram enviados com sucesso!';
+mail($destinatario, $assunto, $corpo, $remetente);
+echo $alerta;
 ?>
