@@ -2,7 +2,7 @@
 
 $remetente    = 'From: contato@titanci.com.br';
 $destinatario = 'camillajesuscorreia@hotmail.com';
-$assunto      = utf8_decode($_POST['nome']);
+$assunto      = 'Um novo form foi preenchido. Confira!';
 $nome         = utf8_decode($_POST['nome']);
 $email        = utf8_decode($_POST['email']);
 $mensagem     = utf8_decode($_POST['mensagem']);
